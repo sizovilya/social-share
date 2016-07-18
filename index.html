@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<style>
+
+.share-btn {
+  display: inline-block;
+  color: #ffffff;
+  border: none;
+  padding: 0.5em;
+  width: 4em;
+  outline: none;
+  text-align: center;
+}
+
+.share-btn:hover {
+  color: #eeeeee;
+}
+
+.share-btn:active {
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+  color: #e2e2e2;
+  outline: none;
+}
+
+.share-btn.twitter     { background: #55acee; }
+.share-btn.google-plus { background: #dd4b39; }
+.share-btn.facebook    { background: #3B5998; }
+.share-btn.linkedin    { background: #4875B4; }
+.share-btn.vkontakte   { background: #45668e; }
+
+</style>
+
+<script type="text/javascript">
+Share = {
+    purl: 'http://teamlix.com/',
+    ptitle: 'Teamlix',
+    text: 'Поиск напарников для видеоигр',
+    pimg: 'https://pp.vk.me/c623125/v623125445/40202/pzxOful_K_k.jpg',
+
+    vkontakte: function() {
+        url  = 'http://vkontakte.ru/share.php?';
+        url += 'url='          + encodeURIComponent(Share.purl);
+        url += '&title='       + encodeURIComponent(Share.ptitle);
+        url += '&description=' + encodeURIComponent(Share.text);
+        url += '&image='       + encodeURIComponent(Share.pimg);
+        url += '&noparse=true';
+        Share.popup(url);
+    },
+    odnoklassniki: function() {
+        url  = 'http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1';
+        url += '&st.comments=' + encodeURIComponent(Share.text);
+        url += '&st._surl='    + encodeURIComponent(Share.purl);
+        Share.popup(url);
+    },
+    facebook: function() {
+        url  = 'http://www.facebook.com/sharer.php?s=100';
+        url += '&p[title]='     + encodeURIComponent(Share.ptitle);
+        url += '&p[summary]='   + encodeURIComponent(Share.text);
+        url += '&p[url]='       + encodeURIComponent(Share.purl);
+        url += '&p[images][0]=' + encodeURIComponent(Share.pimg);
+        Share.popup(url);
+    },
+    twitter: function() {
+        url  = 'http://twitter.com/share?';
+        url += 'text='      + encodeURIComponent(Share.ptitle);
+        url += '&url='      + encodeURIComponent(Share.purl);
+        url += '&counturl=' + encodeURIComponent(Share.purl);
+        Share.popup(url);
+    },
+    mailru: function() {
+        url  = 'http://connect.mail.ru/share?';
+        url += 'url='          + encodeURIComponent(Share.purl);
+        url += '&title='       + encodeURIComponent(Share.ptitle);
+        url += '&description=' + encodeURIComponent(Share.text);
+        url += '&imageurl='    + encodeURIComponent(Share.pimg);
+        Share.popup(url);
+    },
+
+    gp: function() {
+        url  = 'https://plus.google.com/share?';
+        url += 'url='          + encodeURIComponent(Share.purl);
+        Share.popup(url);
+    },
+
+    popup: function(url) {
+        window.open(url,'','toolbar=0,status=0,width=626,height=436');
+    }
+};
+</script>
+</head>
+<body>
+    <a href="#" class="share-btn vkontakte" onclick="Share.vkontakte()">
+      <i class="fa fa-vk"></i>
+    </a>
+    <a href="#" class="share-btn facebook" onclick="Share.facebook()">
+      <i class="fa fa-facebook"></i>
+    </a>
+    <a href="#" class="share-btn twitter" onclick="Share.twitter()">
+      <i class="fa fa-twitter"></i>
+    </a>
+<body>
+</html>
